@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site institucional do advogado Marcos Winicius. Atendimento jurídico com clareza, estratégia e responsabilidade." />
+  <title>Marcos Winicius | Advocacia</title>
+
+  <style>
+    :root {
+      --bg: #070b12;
+      --bg-soft: #0d1420;
+      --card: #111927;
+      --card-2: #151f31;
+      --text: #f7f3ea;
+      --muted: #b6ad9f;
+      --line: rgba(255,255,255,.11);
+      --gold: #c9a45c;
+      --gold-soft: rgba(201,164,92,.16);
+      --white: #ffffff;
+      --shadow: 0 24px 80px rgba(0,0,0,.32);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(201,164,92,.16), transparent 34%),
+        radial-gradient(circle at 90% 0%, rgba(255,255,255,.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 38px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 11, 18, .76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      font-weight: 900;
+      background: linear-gradient(135deg, #f4d992, var(--gold));
+      box-shadow: 0 12px 30px rgba(201,164,92,.25);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 12px;
+      margin-top: -3px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: rgba(247,243,234,.82);
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      color: var(--gold);
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      border-radius: 14px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: .25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #e4c375, var(--gold));
+      color: #101010;
+      box-shadow: 0 16px 40px rgba(201,164,92,.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 48px rgba(201,164,92,.30);
+    }
+
+    .btn-outline {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(201,164,92,.55);
+      color: var(--gold);
+    }
+
+    .hero {
+      position: relative;
+      padding: 150px 0 86px;
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 13px;
+      border: 1px solid rgba(201,164,92,.30);
+      background: var(--gold-soft);
+      color: #f2d999;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 20px var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: .98;
+      letter-spacing: -2.6px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+      max-width: 620px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 650px;
+    }
+
+    .trust-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 20px;
+    }
+
+    .trust-card strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .trust-card span {
+      color: rgba(247,243,234,.72);
+      font-size: 13px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .portrait-card {
+      position: relative;
+      min-height: 620px;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.02)),
+        url("assets/marcos-winicius-hero.jpg") center/cover no-repeat,
+        linear-gradient(145deg, #182234, #0c111b);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(7,11,18,.90));
+    }
+
+    .placeholder-note {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      z-index: 2;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px dashed rgba(255,255,255,.25);
+      background: rgba(7,11,18,.70);
+      color: rgba(247,243,234,.82);
+      font-size: 13px;
+    }
+
+    .portrait-info {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      z-index: 3;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(7,11,18,.78);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .portrait-info h2 {
+      font-size: 28px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .portrait-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .section-kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .section-head p,
+    .text-muted {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .area-card,
+    .feature-card,
+    .article-card,
+    .faq-item {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: .25s ease;
+    }
+
+    .area-card:hover,
+    .feature-card:hover,
+    .article-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,164,92,.40);
+      background: linear-gradient(180deg, rgba(201,164,92,.09), rgba(255,255,255,.025));
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .area-card h3,
+    .feature-card h3,
+    .article-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .area-card p,
+    .feature-card p,
+    .article-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .about-photo {
+      min-height: 520px;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background:
+        url("assets/marcos-winicius-sobre.jpg") center/cover no-repeat,
+        linear-gradient(145deg, #182234, #0c111b);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-photo::after {
+      content: "Adicionar foto profissional aqui";
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px dashed rgba(255,255,255,.24);
+      background: rgba(7,11,18,.72);
+      color: rgba(247,243,234,.78);
+      font-size: 13px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+
+    .signature {
+      margin-top: 26px;
+      padding: 20px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.035);
+      border-radius: 0 20px 20px 0;
+      color: rgba(247,243,234,.88);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
+      min-height: 210px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: inline-flex;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .step h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .article-tag {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 24px;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      text-align: left;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .25s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 24px 24px;
+      color: var(--muted);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 220px;
+    }
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 44px;
+      border-radius: 36px;
+      border: 1px solid rgba(201,164,92,.28);
+      background:
+        radial-gradient(circle at 90% 20%, rgba(201,164,92,.20), transparent 35%),
+        linear-gradient(135deg, #111927, #090e16);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .footer {
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 26px;
+    }
+
+    .footer strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .footer a:hover {
+      color: var(--gold);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 60;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #e4c375, var(--gold));
+      color: #101010;
+      font-weight: 900;
+      box-shadow: 0 18px 44px rgba(201,164,92,.28);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-card {
+        min-height: 520px;
+      }
+
+      .areas-grid,
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid,
+      .steps,
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        height: 70px;
+      }
+
+      .menu-button {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .menu {
+        position: fixed;
+        top: 70px;
+        right: 18px;
+        left: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(13,20,32,.98);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .menu.open {
+        display: flex;
+      }
+
+      .menu .btn {
+        width: 100%;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .trust-row,
+      .areas-grid,
+      .features-grid,
+      .steps,
+      .articles-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-card,
+      .about-photo {
+        min-height: 430px;
+      }
+
+      .cta-box {
+        padding: 30px 22px;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    COMO TROCAR AS IMAGENS DEPOIS:
+    1. Crie uma pasta chamada assets no GitHub.
+    2. Coloque as imagens com estes nomes:
+       - marcos-winicius-hero.jpg
+       - marcos-winicius-sobre.jpg
+    3. Depois podemos adicionar imagens nos cards também.
+  -->
+
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Início do site Marcos Winicius Advocacia">
+        <span class="brand-mark">MW</span>
+        <span>
+          Marcos Winicius
+          <small>Advocacia</small>
+        </span>
+      </a>
+
+      <button class="menu-button" id="menuButton" aria-label="Abrir menu">☰</button>
+
+      <nav class="menu" id="menu">
+        <a href="#areas">Áreas de atuação</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#metodo">Atendimento</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a class="btn btn-primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Atendimento jurídico estratégico e humanizado</span>
+          <h1>Clareza jurídica para decisões mais seguras.</h1>
+          <p>
+            Marcos Winicius atua com responsabilidade, discrição e atenção aos detalhes, oferecendo orientação jurídica personalizada para pessoas e empresas.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Solicitar atendimento</a>
+            <a class="btn btn-outline" href="#areas">Conhecer áreas de atuação</a>
+          </div>
+
+          <div class="trust-row">
+            <div class="trust-card">
+              <strong>Atendimento claro</strong>
+              <span>Explicação objetiva sobre cada etapa.</span>
+            </div>
+            <div class="trust-card">
+              <strong>Estratégia</strong>
+              <span>Análise cuidadosa antes de cada medida.</span>
+            </div>
+            <div class="trust-card">
+              <strong>Sigilo</strong>
+              <span>Tratamento responsável das informações.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="portrait-card">
+            <div class="placeholder-note">
+              Espaço reservado para imagem principal do advogado ou imagem institucional jurídica.
+            </div>
+            <div class="portrait-info">
+              <h2>Marcos Winicius</h2>
+              <p>Advogado | OAB/UF 000.000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="areas">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Áreas de atuação</div>
+          <h2>Atuação jurídica com foco em orientação, prevenção e solução.</h2>
+          <p>Os campos abaixo são uma base inicial. Depois ajustamos de acordo com as áreas reais de atuação do advogado Marcos Winicius.</p>
+        </div>
+
+        <div class="areas-grid">
+          <article class="area-card">
+            <div class="icon-box">⚖</div>
+            <h3>Direito Civil</h3>
+            <p>Orientação em contratos, responsabilidades, cobranças, conflitos patrimoniais e demandas do cotidiano civil.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="icon-box">▣</div>
+            <h3>Direito do Consumidor</h3>
+            <p>Análise de relações de consumo, cobranças indevidas, problemas com serviços e proteção dos direitos do consumidor.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="icon-box">◈</div>
+            <h3>Direito de Família</h3>
+            <p>Atendimento cuidadoso em questões familiares, sempre com sensibilidade, sigilo e responsabilidade.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="icon-box">◷</div>
+            <h3>Direito Trabalhista</h3>
+            <p>Consultoria e análise de situações trabalhistas para empregados e empregadores, conforme o caso concreto.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="icon-box">◇</div>
+            <h3>Contratos</h3>
+            <p>Elaboração, revisão e orientação sobre cláusulas contratuais para reduzir riscos e trazer segurança jurídica.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="icon-box">◉</div>
+            <h3>Consultoria Preventiva</h3>
+            <p>Apoio jurídico para tomada de decisões, organização documental e prevenção de conflitos futuros.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container about-grid">
+        <div class="about-photo"></div>
+
+        <div class="about-copy">
+          <div class="section-kicker">Sobre o advogado</div>
+          <h2>Uma advocacia próxima, técnica e transparente.</h2>
+          <p>
+            Marcos Winicius é advogado com atuação voltada à análise responsável de cada caso, buscando oferecer ao cliente uma visão clara sobre possibilidades, caminhos jurídicos e cuidados necessários.
+          </p>
+          <p>
+            O atendimento é conduzido de forma individualizada, com linguagem acessível, sigilo profissional e compromisso com a boa orientação jurídica.
+          </p>
+          <p>
+            Aqui, o objetivo é que o cliente compreenda sua situação antes de qualquer tomada de decisão, com segurança e responsabilidade.
+          </p>
+
+          <div class="signature">
+            “Cada caso precisa ser analisado com atenção. A boa orientação jurídica começa com escuta, clareza e estratégia.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diferenciais">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Diferenciais</div>
+          <h2>Atendimento pensado para quem busca segurança e clareza.</h2>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3>Linguagem acessível</h3>
+            <p>Explicação clara, sem excesso de termos técnicos desnecessários.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Análise individual</h3>
+            <p>Cada situação é avaliada considerando seus documentos e contexto.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Atuação responsável</h3>
+            <p>Orientação baseada em possibilidades jurídicas reais e verificáveis.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Comunicação organizada</h3>
+            <p>Acompanhamento com informações importantes durante o atendimento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Como funciona</div>
+          <h2>Um processo simples para iniciar seu atendimento.</h2>
+          <p>Essa jornada ajuda o visitante a entender o próximo passo sem pressionar ou prometer resultado.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <h3>Contato inicial</h3>
+            <p>O cliente envia uma mensagem com um resumo da situação e seus principais dados.</p>
+          </div>
+          <div class="step">
+            <h3>Análise do caso</h3>
+            <p>São avaliadas as informações e documentos disponíveis para entender o contexto.</p>
+          </div>
+          <div class="step">
+            <h3>Orientação</h3>
+            <p>O cliente recebe explicações sobre caminhos possíveis, riscos e próximos passos.</p>
+          </div>
+          <div class="step">
+            <h3>Acompanhamento</h3>
+            <p>Quando contratado, o caso segue com comunicação responsável e organizada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="conteudos">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Conteúdos jurídicos</div>
+          <h2>Informação para ajudar você a entender melhor seus direitos.</h2>
+          <p>Depois podemos transformar esses cards em artigos reais ou posts de blog.</p>
+        </div>
+
+        <div class="articles-grid">
+          <article class="article-card">
+            <div class="article-tag">Orientação</div>
+            <h3>O que observar antes de assinar um contrato?</h3>
+            <p>Cláusulas, prazos, responsabilidades e cuidados básicos que merecem atenção.</p>
+          </article>
+          <article class="article-card">
+            <div class="article-tag">Consumidor</div>
+            <h3>Cobrança indevida: quais cuidados tomar?</h3>
+            <p>Entenda a importância de registrar informações e organizar comprovantes.</p>
+          </article>
+          <article class="article-card">
+            <div class="article-tag">Prevenção</div>
+            <h3>Por que buscar orientação antes do problema crescer?</h3>
+            <p>A prevenção jurídica pode ajudar na tomada de decisões mais seguras.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="duvidas">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Dúvidas frequentes</div>
+          <h2>Perguntas comuns antes do primeiro contato.</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">O primeiro contato já resolve meu caso? <span>+</span></button>
+            <div class="faq-answer">
+              <p>O primeiro contato serve para entender a situação e indicar os próximos passos. Cada caso depende da análise dos fatos e documentos.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">Posso enviar documentos pelo WhatsApp? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Sim, quando necessário. O envio deve ser feito com cuidado e apenas pelos canais indicados pelo advogado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">O atendimento pode ser online? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Dependendo da situação, o atendimento pode ocorrer de forma online, mantendo organização, sigilo e segurança nas informações.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">O site garante algum resultado? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Não. O conteúdo do site é informativo e não representa promessa de resultado. Cada caso precisa de avaliação individual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <div class="section-kicker">Contato</div>
+            <h2>Precisa de orientação jurídica?</h2>
+            <p>Envie uma mensagem para iniciar o atendimento e explicar sua situação com segurança e clareza.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Entrar em contato</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Marcos Winicius Advocacia</strong>
+        <p>Site institucional de caráter informativo. O conteúdo não substitui consulta jurídica individualizada.</p>
+      </div>
+      <div>
+        <strong>Contato</strong>
+        <p>WhatsApp: (00) 00000-0000</p>
+        <p>E-mail: contato@exemplo.com.br</p>
+      </div>
+      <div>
+        <strong>Informações profissionais</strong>
+        <p>OAB/UF 000.000</p>
+        <p>Atendimento online e presencial mediante agendamento.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">W</a>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      menuButton.textContent = menu.classList.contains('open') ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.menu a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        menuButton.textContent = '☰';
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
